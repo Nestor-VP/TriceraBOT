@@ -1,5 +1,7 @@
 # Command that returns requested  User's ELO
 # Command to register a new player by nickname and stores Data in a JSON fil
+# Commads: !ELO , !bind , !info
+# Commands are now case insensitive
 # Works!
 
 
@@ -7,6 +9,8 @@
 import discord
 from discord.ext import commands
 from urllib.request import urlopen
+import AOE_API_constants as ct
+import Avatars   as avt
 import json
 
 import os
@@ -15,7 +19,7 @@ from dotenv import load_dotenv
 load_dotenv()
 token1 = os.getenv('TOKEN1')
 
-description = 'aoe2:DE bot'
+description = 'TriceraBOT v7'
 
 intents = discord.Intents.default()
 intents.members = True
@@ -32,7 +36,7 @@ async def on_ready():
 async def ELO(ctx,nickname):
     
     # Abrir URL.
-    r = urlopen(f"https://aoe2.net/api/leaderboard?game=aoe2de&leaderboard_id=4&start=1&count=1&search={nickname}")
+    r = urlopen( ct.AOE2 + ct.RMT + ct.START+f"&search={nickname}")
     # Leer el contenido y e imprimir su tamaño.
     dictionary1 = r.read()
 
@@ -57,10 +61,12 @@ async def ELO(ctx,nickname):
     print(elo)
     await ctx.send(f'{elo}')
 
+###########################################################################    
+
 @client.command()
-async def register(ctx, nickname):
-    temp1 = {}
-    temp1[nickname]=nickname
+async def bind(ctx, platform, user_ID):
+    Discord_id = ctx.message.author.id
+    # temp1[nickname]=nickname
     
     # Now Open Json File and save new user
 
@@ -73,11 +79,13 @@ async def register(ctx, nickname):
     # Append(update) the new dict to the list and overwrite whole file
 
     with open(filename, mode='w') as f:
-        lst.update({nickname:nickname})
+        lst.update({Discord_id:[platform,user_ID]})
         json.dump(lst, f)
 
     
-    await ctx.send(f'el nickname {temp1} ahora esta registrado')
+    await ctx.send(f'el usuario <@{Discord_id}> ahora esta registrado')
+
+###########################################################
     
 
 client.run(token1)
