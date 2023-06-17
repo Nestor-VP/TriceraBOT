@@ -1,4 +1,4 @@
-import Constants as ct
+import AOE_API_constants as ct
 import Avatars as avt
 
 root = ct.AOE2
