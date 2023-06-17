@@ -5,13 +5,15 @@ import discord
 from discord.ext import commands
 from urllib.request import urlopen
 import json
+import os
+from dotenv import load_dotenv
 
-#TriceraBOT token
-token1 = 'MTExNzg3Njk0NTc1ODE5NTg2Mg.GkdMlc.xvJwpI65ZtTl1sUDWdW46VoDLftTUI7_6dLqsI'
-#TriceraBOT teutonic token
-token2 = 'MTExODU1MTcxMjM2NjYwNDI5OA.GLfoCc.qAOz8Sy6F5VaEsJL2ILl0gRdDgwKB9fi41Cfro'
+load_dotenv()
+token1 = os.getenv('TOKEN1')
 
-description = 'Hola mundo'
+
+
+description = 'AOE2 BOT'
 
 intents = discord.Intents.default()
 intents.members = True

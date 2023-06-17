@@ -9,7 +9,13 @@ from discord.ext import commands
 from urllib.request import urlopen
 import json
 
-description = 'Hola mundo'
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+token1 = os.getenv('TOKEN1')
+
+description = 'aoe2:DE bot'
 
 intents = discord.Intents.default()
 intents.members = True
@@ -74,4 +80,4 @@ async def register(ctx, nickname):
     await ctx.send(f'el nickname {temp1} ahora esta registrado')
     
 
-client.run('MTExNzg3Njk0NTc1ODE5NTg2Mg.GkdMlc.xvJwpI65ZtTl1sUDWdW46VoDLftTUI7_6dLqsI')
+client.run(token1)
