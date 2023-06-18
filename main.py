@@ -14,7 +14,7 @@ bot = commands.Bot(command_prefix='!',intents=discord.Intents.all(),case_insensi
 # Bot event: print  a message when the bot is ready ( online)
 @bot.event
 async def on_ready():
-    print(f'Logged is as {bot.user}')
+    print(f'Logged in as {bot.user}')
 
 # Bot command: Command to load a file extension (specific Cog File)
 @bot.command()
