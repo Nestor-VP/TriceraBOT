@@ -65,9 +65,8 @@ async def ELO(ctx,nickname):
 
 @client.command()
 async def bind(ctx, platform, user_ID):
-    Discord_id = ctx.message.author.id
-    # temp1[nickname]=nickname
-    
+    Discord_id = ctx.message.author.id  # Get Command-author Discord ID
+       
     # Now Open Json File and save new user
 
     filename = "./nicknames.json"
@@ -75,7 +74,7 @@ async def bind(ctx, platform, user_ID):
     with open(filename, mode='r') as f:
         lst = json.load(f)
 
-        #print(lst)
+        
     # Append(update) the new dict to the list and overwrite whole file
 
     with open(filename, mode='w') as f:
