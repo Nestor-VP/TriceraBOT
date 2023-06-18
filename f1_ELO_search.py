@@ -6,10 +6,9 @@ from discord.ext import commands
 from urllib.request import urlopen
 import json
 import os
-from dotenv import load_dotenv
+import BOT_functions as botfx
 
-load_dotenv()
-token1 = os.getenv('TOKEN1')
+token = botfx.get_token()
 
 
 
@@ -57,4 +56,4 @@ async def ELO(ctx,nickname):
     print(elo)
     await ctx.send(f'{elo}')
 
-client.run(token1)
+client.run(token)
