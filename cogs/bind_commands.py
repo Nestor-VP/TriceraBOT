@@ -21,7 +21,7 @@ class bind_cmd(commands.Cog):
         print('Bind commands ready')
     
 
-    # Bot command: Command to Bind Discord.Account with Xbox/Steam ID
+    # !Bind command: Command to Bind Discord.Account with Xbox/Steam ID
     # platform: Xbox or Steam
     # user_ID: Xbox or Steam User-ID-number
     @commands.command()

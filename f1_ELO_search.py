@@ -6,9 +6,9 @@ from discord.ext import commands
 from urllib.request import urlopen
 import json
 import os
-import BOT_functions as botfx
+import script_functions as sfx
 
-token = botfx.get_token()
+token = sfx.get_token()
 
 
 

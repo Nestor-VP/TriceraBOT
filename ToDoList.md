@@ -2,8 +2,7 @@
 
 ## First Steps 
 1. [x] Install Discord API for python
-2. [x] Find a ladder API for Aoe2
-    > found Aoe2.net API
+2. [x] set Aoe2.net API for Ladder Data
 3. [x] Basic BOT commands
 
 ## Next Steps
@@ -36,28 +35,37 @@
    > Parameters:  
    > - platform = xbox or steam  
    > - UserID = PlayerID or SteamID
+   > New player will start with a defaul-role (villager)
 
-2. [ ] !info *Discord.User
+2. [ ] !unbind
+   > Unbinds Discord account with associated platform-account
+   > User aoe2-role will be deleted and set to channel-default-role
+
+3. [ ] !rebind platform UserID
+   > Rebinds Discord account with a new Xbox/Steam account
+   > Users aoe2-role will be set to default-player-role ( villager)
+
+4. [ ] !info *Discord.User
    > Retrieves Desired user Player Card  
    > if empty retrieves command.author Player Card
 
-3. [ ] !update
+5. [ ] !update
    > Updates Command.author Player Card
 
-4. [ ] !verify Discord.User
+6. [ ] !verify Discord.User
    > Admins command to verify Player Identity
 
-5. [ ] !rebind platform UserID
+7. [ ] !rebind platform UserID
    > Command to rebind Discord Account with xbox/steam account  
    > WARNING: You will lose your verification
 
-6. [ ] !RemoveBind
+8. [ ] !RemoveBind
     > Unlinks Discord.Account with Platform Account  
     > User is removed from Local Ladder  
     > All User Stored Data is deleted  
     > User will Lose his "Ladder Role"
 
-7. [ ] !AdminRemove Discord.member
+9.  [ ] !AdminRemove Discord.member
     > Admin Command to manually remove a Discord.member from local ladder.  
     > All User Stored Data is deleted  
     > User will Lose his "Ladder Role"

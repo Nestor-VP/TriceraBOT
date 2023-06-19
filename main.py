@@ -2,10 +2,10 @@ import discord
 import os
 import asyncio
 from discord.ext import commands
-import BOT_functions as botfx
+import script_functions as sfx
 
 # Retrieve token key
-token = botfx.get_token()
+token = sfx.get_token()
 
 # Creating a Bot object
 bot = commands.Bot(command_prefix='!',intents=discord.Intents.all(),case_insensitive=True)
