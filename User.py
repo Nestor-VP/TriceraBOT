@@ -189,7 +189,7 @@ class BotUser:
 
     
 
-
+"""
 
 # Create an instance of MyClass
 my_instance = BotUser(231321,"xboxx", 321321)
@@ -207,3 +207,5 @@ my_instance = BotUser(2313,"STEAM", 76561198260505584)
 
 # Access and print the dictionary
 my_instance.print_dictionary()
+
+"""
