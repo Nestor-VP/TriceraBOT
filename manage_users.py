@@ -11,16 +11,16 @@
 
 import json
 from User import BotUser
+import AOE_API_constants as constants
 
 
 def verify_new_user(json_file,key):
     with open(json_file, 'r') as users_list:
         data=json.load(users_list)
+    #convert Key-number into a string
+    key_str = str(key)
 
-    if key in data:
-        return True
-    else:
-        return False
+    return key_str in data
     
 
 def add_new_user(json_file,discord_id,platform,platform_id):
@@ -66,7 +66,7 @@ def sort_users(json_file):
 
 
 
-filename = "./nicknames.json"
+filename = constants.users_file
 
 sort_users(filename)
 

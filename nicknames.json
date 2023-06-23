@@ -1,7 +1,1 @@
-{
-    "2313": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "ezeXD", "elo_single": 1168, "elo_team": 1136, "ladder_role": "villager", "ladder_rank": " "},
-    "2323": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "triceratops", "elo_single": 1123, "elo_team": 1200, "ladder_role": "villager", "ladder_rank": " "},
-    "2123": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "mazzurko", "elo_single": 1168, "elo_team": 1052, "ladder_role": "villager", "ladder_rank": " "},
-    "2356": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "nitram", "elo_single": 1168, "elo_team": 1183, "ladder_role": "villager", "ladder_rank": " "}
-
-}
+{"2313": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "ezeXD", "elo_single": 1168, "elo_team": 1136, "ladder_role": "villager", "ladder_rank": " "}, "2323": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "triceratops", "elo_single": 1123, "elo_team": 1200, "ladder_role": "villager", "ladder_rank": " "}, "2123": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "mazzurko", "elo_single": 1168, "elo_team": 1052, "ladder_role": "villager", "ladder_rank": " "}, "2356": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "nitram", "elo_single": 1168, "elo_team": 1183, "ladder_role": "villager", "ladder_rank": " "}, "323486994040750081": {"user_platform": "xbox", "platform_id": "5653631", "aoe_name": "no-data", "elo_single": 0, "elo_team": 1114, "ladder_role": "villager", "rank_single": 0, "rank_team": 0}}

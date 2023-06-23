@@ -23,5 +23,11 @@ START= "&start=1&count=1"
 XBOX = "&profile_id="
 STEAM = "&steam_id="
 
+#.......................................................................
+##  Bot-users list file path
+
+users_file = "./nicknames.json"
+
+
 
 

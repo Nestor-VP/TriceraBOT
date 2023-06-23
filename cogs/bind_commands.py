@@ -3,6 +3,7 @@
 #   !bind: Binds Discord.Account with Xbox/Steam Account
 #   !unbind: Deletes association among Discord.Account and desired platform-account
 #   !rebind: Deletes old association and creates a new one.
+# Status: Working
 
 
 import discord
@@ -10,7 +11,9 @@ from discord.ext import commands
 from urllib.request import urlopen
 import json
 from User import BotUser
-import manage_users as musr
+import manage_users
+import AOE_API_constants as constants
+import script_functions as functions
 
 # Creating bind_cmd class
 class bind_cmd(commands.Cog):
@@ -25,32 +28,33 @@ class bind_cmd(commands.Cog):
 
     # !Bind command: Command to Bind Discord.Account with Xbox/Steam ID
     # platform: Xbox or Steam
-    # user_ID: Xbox or Steam User-ID-number
+    # platform_id: Xbox or Steam User-ID-number
     @commands.command()
-    async def bind(self,ctx,platform,user_ID):
+    async def bind(self,ctx,platform,platform_id):
 
         Discord_id = ctx.message.author.id  # Get Command-author Discord ID
 
-        # User's info file path
-        filename = "./nicknames.json"
+        #check if platform-input is correct
+        platformVal = functions.eval_platform(platform)
 
-        is_new = musr.verify_new_user(filename,Discord_id)
+
+        # User's info file path
+        filename = constants.users_file
+
+        is_new = manage_users.verify_new_user(filename,Discord_id)
 
         if is_new == True:
             await ctx.send(f'ERROR: el usuario <@{Discord_id}> ya existe')
+            await ctx.send(f'Para ver la lista de commandos , digitar: !List')
+            return
+        elif platformVal== 'error':
+            await ctx.send(f'ERROR: Ingrese una plataforma válida ( Xbox or Steam)')
             return
         else:
             pass
 
-        with open(filename, mode='r') as f:
-            lst = json.load(f)        
-            
-        # Append(update) the new dict to the list and overwrite whole file
-        with open(filename, mode='w') as f:
-            lst.update({Discord_id:[platform,user_ID]})
-            json.dump(lst, f)
+        manage_users.add_new_user(filename,Discord_id,platform,platform_id)
 
-    
         await ctx.send(f'el usuario <@{Discord_id}> ahora esta registrado')
         
       
