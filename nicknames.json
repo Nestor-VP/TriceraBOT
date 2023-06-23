@@ -1,1 +1,7 @@
-{"323486994040750081": ["xbox", "321309021"], "1117865439167516823": ["steam", "2783766278282"]}
+{
+    "2313": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "ezeXD", "elo_single": 1168, "elo_team": 1136, "ladder_role": "villager", "ladder_rank": " "},
+    "2323": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "triceratops", "elo_single": 1123, "elo_team": 1200, "ladder_role": "villager", "ladder_rank": " "},
+    "2123": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "mazzurko", "elo_single": 1168, "elo_team": 1052, "ladder_role": "villager", "ladder_rank": " "},
+    "2356": {"user_platform": "steam", "platform_id": 76561198260505584, "aoe_name": "nitram", "elo_single": 1168, "elo_team": 1183, "ladder_role": "villager", "ladder_rank": " "}
+
+}

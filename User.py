@@ -7,6 +7,7 @@ from urllib.request import urlopen
 
 
 
+
 class BotUser:
     def __init__(self, discord_id, platform , platform_id ):
         self._user_dictionary = {
@@ -17,7 +18,8 @@ class BotUser:
                 "elo_single": self.fetch_elo_single(platform,platform_id),
                 "elo_team": self.fetch_elo_team(platform,platform_id),
                 "ladder_role": "villager",
-                "ladder_rank": " "
+                "rank_single": 0,
+                "rank_team": 0
             }
         }
 
@@ -26,6 +28,12 @@ class BotUser:
 
     
     # Getters
+
+    @property
+    def dictionary(self):
+        return self._user_dictionary
+
+
     @property
     def key_id(self):
         return list(self._user_dictionary.keys())[0]
@@ -55,14 +63,18 @@ class BotUser:
         return self._user_dictionary[self.key_id]["ladder_role"]
     
     @property
-    def rank(self):
-        return self._user_dictionary[self.key_id]["ladder_rank"]
+    def rank_single(self):
+        return self._user_dictionary[self.key_id]["rank_single"]
+    
+    @property
+    def rank_team(self):
+        return self._user_dictionary[self.key_id]["rank_team"]
     
 
     # Key_id setter
     @key_id.setter
     def key_id(self, new_key):
-        self._user_dictionary[new_key] = self._user_dictionary.pop(self.key)
+        self._user_dictionary[new_key] = self._user_dictionary.pop(self.key_id)
 
     
     #Methods
@@ -133,7 +145,7 @@ class BotUser:
         elif plt =='steam':
             platform_name = aoe_cts.STEAM
         else:
-            return 'no-data'
+            return 0
     
 
         try:
@@ -150,7 +162,7 @@ class BotUser:
             return elo
 
         except:
-            return 'no-data'
+            return 0
         
     
     def fetch_elo_team(self,platform,platform_id):
@@ -168,7 +180,7 @@ class BotUser:
         elif plt =='steam':
             platform_name = aoe_cts.STEAM
         else:
-            return 'no-data'
+            return 0
     
 
         try:
@@ -183,7 +195,7 @@ class BotUser:
             return elo
 
         except:
-            return 'no-data'
+            return 0
 
 
 
@@ -194,8 +206,11 @@ class BotUser:
 # Create an instance of MyClass
 my_instance = BotUser(231321,"xboxx", 321321)
 
+
 # Access and print the dictionary
-my_instance.print_dictionary()
+
+print(my_instance.dictionary)
+
 
 #print attributes
 print(my_instance.key_id)
@@ -203,9 +218,16 @@ print(my_instance.platform)
 print(my_instance.platform_id)
 print(my_instance.role)
 
-my_instance = BotUser(2313,"STEAM", 76561198260505584)
+"""
+
+#my_instance = BotUser(2313,"STEAM", 76561198260505584)
+
+#print(my_instance.dictionary)
 
 # Access and print the dictionary
-my_instance.print_dictionary()
 
-"""
+
+
+
+
+

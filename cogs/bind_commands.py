@@ -9,6 +9,8 @@ import discord
 from discord.ext import commands
 from urllib.request import urlopen
 import json
+from User import BotUser
+import manage_users as musr
 
 # Creating bind_cmd class
 class bind_cmd(commands.Cog):
@@ -28,9 +30,17 @@ class bind_cmd(commands.Cog):
     async def bind(self,ctx,platform,user_ID):
 
         Discord_id = ctx.message.author.id  # Get Command-author Discord ID
-       
-        # Now Open Json File and save new user
+
+        # User's info file path
         filename = "./nicknames.json"
+
+        is_new = musr.verify_new_user(filename,Discord_id)
+
+        if is_new == True:
+            await ctx.send(f'ERROR: el usuario <@{Discord_id}> ya existe')
+            return
+        else:
+            pass
 
         with open(filename, mode='r') as f:
             lst = json.load(f)        
