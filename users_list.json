@@ -7,7 +7,7 @@
         "elo_team": 1114,
         "ladder_role": "villager",
         "rank_single": 0,
-        "rank_team": 0
+        "rank_team": 1
     },
     "253100908613730305": {
         "user_platform": "steam",
@@ -17,6 +17,6 @@
         "elo_team": 1065,
         "ladder_role": "villager",
         "rank_single": 0,
-        "rank_team": 0
+        "rank_team": 2
     }
 }

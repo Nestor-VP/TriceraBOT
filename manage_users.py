@@ -46,15 +46,16 @@ def add_new_user(json_file,discord_id,platform,platform_id):
 
 
 # Sorts users-file list according to 1 parameter
-# needs to be improved
-def sort_users(json_file):
+# needs to be improved - Done 
+# Last update: sort_users now accepts arguments
+def sort_users(json_file,elo_type,rank_type):
 
-    # Read the Json File and parse it into a dictionary
+    # Read the users-list Json File and parse it into a dictionary
 
     with open(json_file,'r') as users_list:
         data = json.load(users_list)
 
-    sorted_users = sorted(data.keys(),key=lambda x:data[x]["elo_team"],reverse=True)
+    sorted_users = sorted(data.keys(),key=lambda x:data[x][elo_type],reverse=True)
 
     print(sorted_users)
 
@@ -64,67 +65,15 @@ def sort_users(json_file):
 
     for key in sorted_users:
         
-        data[key]["ladder_rank"]= position
+        data[key][rank_type]= position
         position += 1
 
 
     print(data)
 
-
-# This function retrieves Discord.User-Dictionary
-# and creates a discord.Embed to show its game-info
-
-async def player_card(json_file,key,user):
-
-    key_str=str(key)
-
-    with open(json_file,'r') as users_list:
-        data = json.load(users_list)
-    
-    user_info=data[key_str]
-
-    embed = Embed(
-            title=f'Player info',  # Set the title of the embed
-            description= f'<@{key}> stats:',  # Set the description of the embed
-            color=discord.Color.blue()  # Set the color of the embed
-        )
-
-        # Add fields to the embed
-    embed.add_field(name=user_info["elo_team"], value='Value 1', inline=False)  # Add a field with a name and value (not inline)
-    embed.add_field(name='Field 2', value='Value 2', inline=True)  # Add a field with a name and value (inline)
-
-        # Set an image for the embed
-    
-    avatar_url = user.avatar_url
-    
-
-    embed.set_thumbnail(url=avatar_url)  # Set the image URL for the embed
-    embed.set_image(url='https://i.imgur.com/UoKS5Tr.png')
-        # Send the embed message to the channel
-    # await ctx.send(embed=embed)
-    # We Shall return embed
-    
+    with open(json_file,'w') as users_list:
+        json.dump(data, users_list)
 
 
 
 
-
-filename = constants.users_file
-
-sort_users(filename)
-
-
-
-
-
-
-
-
-
-''' Test Commands
-
-filename = "./nicknames.json"
-
-add_new_user(filename,2313,"STEAM", 76561198260505584)
-
-'''
