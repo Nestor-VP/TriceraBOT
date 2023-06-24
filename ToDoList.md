@@ -30,19 +30,18 @@
 10. [ ] Bot Data self-update function
 
 ## BOT Commands List
-1. [x] !bind platform UserID  
-   > Binds Discord account with Xbox/Steam account  
+1. [x] !bind AOE_ID  
+   > Binds Discord account with AOE account  
    > Parameters:  
-   > - platform = xbox or steam  
-   > - UserID = PlayerID or SteamID
+   > - AOE_ID = AOE player-ID-number
    > New player will start with a defaul-role (villager)
 
 2. [ ] !unbind
-   > Unbinds Discord account with associated platform-account
+   > Unbinds Discord account with associated AOE-account
    > User aoe2-role will be deleted and set to channel-default-role
 
-3. [ ] !rebind platform UserID
-   > Rebinds Discord account with a new Xbox/Steam account
+3. [ ] !rebind  UserID
+   > Rebinds Discord account with a new AOE account
    > Users aoe2-role will be set to default-player-role ( villager)
 
 4. [x] !info *Discord.User
@@ -55,12 +54,12 @@
 6. [ ] !verify Discord.User
    > Admins command to verify Player Identity
 
-7. [ ] !rebind platform UserID
-   > Command to rebind Discord Account with xbox/steam account  
+7. [ ] !rebind UserID
+   > Command to rebind Discord Account with new AOE account  
    > WARNING: You will lose your verification
 
 8. [ ] !RemoveBind
-    > Unlinks Discord.Account with Platform Account  
+    > Unlinks Discord.Account with AOE Account  
     > User is removed from Local Ladder  
     > All User Stored Data is deleted  
     > User will Lose his "Ladder Role"

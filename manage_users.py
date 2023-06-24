@@ -27,10 +27,10 @@ def verify_new_user(json_file,key):
     return key_str in data
     
 # Adds a new-user-dictionary to the Users-list Json File
-def add_new_user(json_file,discord_id,platform,platform_id):
+def add_new_user(json_file,discord_id,aoe_id):
 
     # Now Open Json File and save new user
-    new_user = BotUser(discord_id,platform,platform_id)
+    new_user = BotUser(discord_id,aoe_id)
 
     with open(json_file, mode='r') as users_list:
         data = json.load(users_list)

@@ -9,14 +9,14 @@ from urllib.request import urlopen
 
 
 class BotUser:
-    def __init__(self, discord_id, platform , platform_id ):
+    def __init__(self, discord_id, aoe_id ):
         self._user_dictionary = {
             discord_id: {
-                "user_platform": self.eval_platform(platform),
-                "platform_id": platform_id,
-                "aoe_name": self.fetch_aoe_name(platform,platform_id),
-                "elo_single": self.fetch_elo_single(platform,platform_id),
-                "elo_team": self.fetch_elo_team(platform,platform_id),
+                
+                "aoe_id": aoe_id,
+                "aoe_name": self.fetch_aoe_name(aoe_id),
+                "elo_single": self.fetch_elo_single(aoe_id),
+                "elo_team": self.fetch_elo_team(aoe_id),
                 "ladder_role": "villager",
                 "rank_single": 0,
                 "rank_team": 0
@@ -38,13 +38,10 @@ class BotUser:
     def key_id(self):
         return list(self._user_dictionary.keys())[0]
     
+  
     @property
-    def platform(self):
-        return self._user_dictionary[self.key_id]["user_platform"]
-    
-    @property
-    def platform_id(self):
-        return self._user_dictionary[self.key_id]["platform_id"]
+    def aoe_id(self):
+        return self._user_dictionary[self.key_id]["aoe_id"]
     
     @property
     def aoe_name(self):
@@ -77,41 +74,21 @@ class BotUser:
         self._user_dictionary[new_key] = self._user_dictionary.pop(self.key_id)
 
     
-    #Methods
+    #Methods 
 
-    # Evaluates if platform input value is correct
-    def eval_platform(self,platform):
+    def fetch_aoe_name(self,aoe_id):
 
-        plt = platform.casefold()
-
-        if (plt=='xbox')or(plt=='steam'):
-            return plt
-        else:
-            return 'invalid'
-    
-
-    # 
-
-    def fetch_aoe_name(self,platform,platform_id):
-
-        plt = self.eval_platform(platform)
+       
 
         root = aoe_cts.AOE2
         start = aoe_cts.START
-        leaderboard_id = aoe_cts.RM1
+        leaderboard_id = aoe_cts.RMT
 
-        if plt =='xbox':
-            
-            platform_name = aoe_cts.XBOX
-        
-        elif plt =='steam':
-            platform_name = aoe_cts.STEAM
-        else:
-            return 'no-data'
+        id_search = aoe_cts.ID_SEARCH
     
 
         try:
-            api_data = urlopen( root + leaderboard_id+start+platform_name+f"{platform_id}")
+            api_data = urlopen( root + leaderboard_id+start+id_search+f"{aoe_id}")
 
             dictionary1 = api_data.read()
             
@@ -130,26 +107,17 @@ class BotUser:
     
 
     
-    def fetch_elo_single(self,platform,platform_id):
-
-        plt = self.eval_platform(platform)
+    def fetch_elo_single(self,aoe_id):
 
         root = aoe_cts.AOE2
         start = aoe_cts.START
         leaderboard_id = aoe_cts.RM1
+        id_search = aoe_cts.ID_SEARCH
 
-        if plt =='xbox':
-            
-            platform_name = aoe_cts.XBOX
         
-        elif plt =='steam':
-            platform_name = aoe_cts.STEAM
-        else:
-            return 0
-    
 
         try:
-            api_data = urlopen( root + leaderboard_id+start+platform_name+f"{platform_id}")
+            api_data = urlopen( root + leaderboard_id+start+id_search+f"{aoe_id}")
 
             dictionary1 = api_data.read()
             
@@ -165,26 +133,16 @@ class BotUser:
             return 0
         
     
-    def fetch_elo_team(self,platform,platform_id):
-
-        plt = self.eval_platform(platform)
+    def fetch_elo_team(self,aoe_id):
 
         root = aoe_cts.AOE2
         start = aoe_cts.START
         leaderboard_id = aoe_cts.RMT
+        id_search = aoe_cts.ID_SEARCH
 
-        if plt =='xbox':
-            
-            platform_name = aoe_cts.XBOX
-        
-        elif plt =='steam':
-            platform_name = aoe_cts.STEAM
-        else:
-            return 0
     
-
         try:
-            api_data = urlopen( root + leaderboard_id+start+platform_name+f"{platform_id}")
+            api_data = urlopen( root + leaderboard_id+start+id_search+f"{aoe_id}")
 
             dictionary1 = api_data.read()
            
@@ -204,27 +162,9 @@ class BotUser:
 """
 
 # Create an instance of MyClass
-my_instance = BotUser(231321,"xboxx", 321321)
-
-
-# Access and print the dictionary
-
-print(my_instance.dictionary)
-
-
-#print attributes
-print(my_instance.key_id)
-print(my_instance.platform)
-print(my_instance.platform_id)
-print(my_instance.role)
+my_instance = BotUser(231321,321321)
 
 """
-
-#my_instance = BotUser(2313,"STEAM", 76561198260505584)
-
-#print(my_instance.dictionary)
-
-# Access and print the dictionary
 
 
 

@@ -31,8 +31,8 @@ class update_cmd(commands.Cog):
 
         user_exist= manage_users.verify_new_user(filename,Discord_id)
 
-        
 
 
-        pass
 
+async def setup(bot):
+    await bot.add_cog(update_cmd(bot))   

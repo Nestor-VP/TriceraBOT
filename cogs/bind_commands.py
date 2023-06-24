@@ -1,7 +1,7 @@
-# Commands for Binding Discord-User with Xbox/Steam Account
+# Commands for Binding Discord-User with an AOE-account
 # Command List:
-#   !bind: Binds Discord.Account with Xbox/Steam Account
-#   !unbind: Deletes association among Discord.Account and desired platform-account
+#   !bind: Binds Discord.Account with AOE Account
+#   !unbind: Deletes association among Discord.Account and AOE account
 #   !rebind: Deletes old association and creates a new one.
 # Status: Working
 
@@ -26,17 +26,12 @@ class bind_cmd(commands.Cog):
         print('Bind commands ready')
     
 
-    # !Bind command: Command to Bind Discord.Account with Xbox/Steam ID
-    # platform: Xbox or Steam
-    # platform_id: Xbox or Steam User-ID-number
+    # !Bind command: Command to Bind Discord.Account with AOE Account
+    # aoe_id: AOE User-ID-number
     @commands.command()
-    async def bind(self,ctx,platform,platform_id):
+    async def bind(self,ctx,aoe_id):
 
         Discord_id = ctx.message.author.id  # Get Command-author Discord ID
-
-        #check if platform-input is correct
-        platformVal = functions.eval_platform(platform)
-
 
         # User's info file path
         filename = constants.users_file
@@ -47,13 +42,11 @@ class bind_cmd(commands.Cog):
             await ctx.send(f'ERROR: el usuario <@{Discord_id}> ya existe')
             await ctx.send(f'Para ver la lista de commandos , digitar: !List')
             return
-        elif platformVal== 'error':
-            await ctx.send(f'ERROR: Ingrese una plataforma válida ( Xbox or Steam)')
-            return
+        
         else:
             pass
 
-        manage_users.add_new_user(filename,Discord_id,platform,platform_id)
+        manage_users.add_new_user(filename,Discord_id,aoe_id)
 
         await ctx.send(f'el usuario <@{Discord_id}> ahora esta registrado')
         

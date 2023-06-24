@@ -19,16 +19,4 @@ def get_token():
 #_________________________________________________________
 
 
-# function to Validate the Platform ( Xbox or Steam)
-def eval_platform(platform):
-
-    plt = platform.casefold()
-
-    if (plt=='xbox')or(plt=='steam'):
-        return plt
-    else:
-        return 'error'
-
-
-# ________________________________________________________________
 

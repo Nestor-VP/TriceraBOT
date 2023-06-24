@@ -18,7 +18,9 @@ RMT = "4"
 ## That's why we define Start and count as constant
 START= "&start=1&count=1"
 
-## Platform Constants
+## Search Type Constants
+
+ID_SEARCH = "&profile_id="
 
 XBOX = "&profile_id="
 STEAM = "&steam_id="

@@ -1,22 +1,20 @@
 {
     "323486994040750081": {
-        "user_platform": "xbox",
-        "platform_id": "5653631",
+        "aoe_id": "892389138891328",
         "aoe_name": "no-data",
         "elo_single": 0,
-        "elo_team": 1114,
+        "elo_team": 0,
         "ladder_role": "villager",
         "rank_single": 0,
-        "rank_team": 1
+        "rank_team": 0
     },
-    "253100908613730305": {
-        "user_platform": "steam",
-        "platform_id": "76561198075710980",
-        "aoe_name": "Mazzurko",
-        "elo_single": 981,
-        "elo_team": 1065,
+    "1117865439167516823": {
+        "aoe_id": "1000",
+        "aoe_name": "no-data",
+        "elo_single": 0,
+        "elo_team": 0,
         "ladder_role": "villager",
         "rank_single": 0,
-        "rank_team": 2
+        "rank_team": 0
     }
 }
