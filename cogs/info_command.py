@@ -42,14 +42,34 @@ class info_cmd(commands.Cog):
         user_exist = manage_users.verify_new_user(filename,username)
 
         if user_exist:
-            await ctx.send(f"Hello <@{username}>")
-
             user = await self.bot.fetch_user(username)
 
-            embed = Embed(title='Player avatar',
-                          description= f'<@{username}> stats:',  # Set the description of the embed
-                        color=discord.Color.blue()
+            with open(filename, 'r') as users_list:
+                data=json.load(users_list)
+            
+            key_str = str(username)
+
+            aoe_name = data[key_str]["aoe_name"]
+            elo_single=data[key_str]["elo_single"]
+            elo_team=data[key_str]["elo_team"]
+            rank_single=data[key_str]["rank_single"]
+            rank_team=data[key_str]["rank_team"]
+            bot_role= data[key_str]["ladder_role"]
+
+            
+            
+
+            #"<font color='red'>Description</font>"
+
+            embed = Embed(title= None,
+                          description= f"__**<@{username}> CARD: **__",  # Set the description of the embed
+                        color=discord.Color.green()
                           )
+            
+            embed.add_field(name="", value=f"**AOE nickname: **{aoe_name} ",inline=False)
+            embed.add_field(name="", value=f"**ELO 1v1: **{elo_single} - **Rank 1v1: **{rank_single}",inline=False)
+            embed.add_field(name="", value=f"**ELO team: **{elo_team} - **Rank team: **{rank_team}",inline=False)
+            embed.add_field(name="", value=f"**AOE role**{bot_role} ",inline=False)
             embed.set_thumbnail(url=user.avatar.url)
             embed.set_image(url='https://i.imgur.com/UoKS5Tr.png')
 
