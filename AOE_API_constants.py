@@ -26,7 +26,8 @@ STEAM = "&steam_id="
 #.......................................................................
 ##  Bot-users list file path
 
-users_file = "./nicknames.json"
+# users_file = "./nicknames.json"
+users_file = "./users_list.json"
 
 
 

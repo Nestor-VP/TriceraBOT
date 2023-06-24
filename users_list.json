@@ -1,0 +1,22 @@
+{
+    "323486994040750081": {
+        "user_platform": "xbox",
+        "platform_id": "5653631",
+        "aoe_name": "no-data",
+        "elo_single": 0,
+        "elo_team": 1114,
+        "ladder_role": "villager",
+        "rank_single": 0,
+        "rank_team": 0
+    },
+    "253100908613730305": {
+        "user_platform": "steam",
+        "platform_id": "76561198075710980",
+        "aoe_name": "Mazzurko",
+        "elo_single": 981,
+        "elo_team": 1065,
+        "ladder_role": "villager",
+        "rank_single": 0,
+        "rank_team": 0
+    }
+}

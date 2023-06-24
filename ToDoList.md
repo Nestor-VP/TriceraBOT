@@ -19,10 +19,10 @@
 6. [ ] Work with JSON files
     - [x] Read Data from JSON
     - [x] Edit JSON file
-    - [ ] Sort Data from a JSON file
+    - [x] Sort Data from a JSON file
 7. [ ] Optimize Code
-   - [ ] functions
-   - [ ] Classes
+   - [x] functions
+   - [x] Classes
    - [x] Define Constants
    - [x] Create Modules
 8. [ ] Show Table on Discord
@@ -30,7 +30,7 @@
 10. [ ] Bot Data self-update function
 
 ## BOT Commands List
-1. [ ] !bind platform UserID  
+1. [x] !bind platform UserID  
    > Binds Discord account with Xbox/Steam account  
    > Parameters:  
    > - platform = xbox or steam  

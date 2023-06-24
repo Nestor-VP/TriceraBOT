@@ -12,8 +12,12 @@
 import json
 from User import BotUser
 import AOE_API_constants as constants
+import discord
+from discord.ext import commands
+from discord import Embed
 
 
+# verify_new_user -> verifies if a discord.id is already registered
 def verify_new_user(json_file,key):
     with open(json_file, 'r') as users_list:
         data=json.load(users_list)
@@ -22,7 +26,7 @@ def verify_new_user(json_file,key):
 
     return key_str in data
     
-
+# Adds a new-user-dictionary to the Users-list Json File
 def add_new_user(json_file,discord_id,platform,platform_id):
 
     # Now Open Json File and save new user
@@ -41,6 +45,8 @@ def add_new_user(json_file,discord_id,platform,platform_id):
     print("data updated")
 
 
+# Sorts users-file list according to 1 parameter
+# needs to be improved
 def sort_users(json_file):
 
     # Read the Json File and parse it into a dictionary
@@ -63,6 +69,43 @@ def sort_users(json_file):
 
 
     print(data)
+
+
+# This function retrieves Discord.User-Dictionary
+# and creates a discord.Embed to show its game-info
+
+async def player_card(json_file,key,user):
+
+    key_str=str(key)
+
+    with open(json_file,'r') as users_list:
+        data = json.load(users_list)
+    
+    user_info=data[key_str]
+
+    embed = Embed(
+            title=f'Player info',  # Set the title of the embed
+            description= f'<@{key}> stats:',  # Set the description of the embed
+            color=discord.Color.blue()  # Set the color of the embed
+        )
+
+        # Add fields to the embed
+    embed.add_field(name=user_info["elo_team"], value='Value 1', inline=False)  # Add a field with a name and value (not inline)
+    embed.add_field(name='Field 2', value='Value 2', inline=True)  # Add a field with a name and value (inline)
+
+        # Set an image for the embed
+    
+    avatar_url = user.avatar_url
+    
+
+    embed.set_thumbnail(url=avatar_url)  # Set the image URL for the embed
+    embed.set_image(url='https://i.imgur.com/UoKS5Tr.png')
+        # Send the embed message to the channel
+    # await ctx.send(embed=embed)
+    # We Shall return embed
+    
+
+
 
 
 
