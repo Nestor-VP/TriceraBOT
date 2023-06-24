@@ -32,11 +32,15 @@ class BotUser:
     @property
     def dictionary(self):
         return self._user_dictionary
-
-
+    
+    
     @property
     def key_id(self):
         return list(self._user_dictionary.keys())[0]
+    
+    @property
+    def value(self):
+        return self._user_dictionary[self.key_id]
     
   
     @property
