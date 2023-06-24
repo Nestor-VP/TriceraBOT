@@ -57,7 +57,7 @@ def sort_users(json_file,elo_type,rank_type):
 
     sorted_users = sorted(data.keys(),key=lambda x:data[x][elo_type],reverse=True)
 
-    print(sorted_users)
+    #print(sorted_users)
 
     #sorted_dictionary = {key: data[key] for key in sorted_users}
 
@@ -69,7 +69,7 @@ def sort_users(json_file,elo_type,rank_type):
         position += 1
 
 
-    print(data)
+    #print(data)
 
     with open(json_file,'w') as users_list:
         json.dump(data, users_list)
