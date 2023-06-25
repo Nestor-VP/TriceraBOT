@@ -33,6 +33,8 @@ class bind_cmd(commands.Cog):
 
         Discord_id = ctx.message.author.id  # Get Command-author Discord ID
 
+        discord_new_role = discord.utils.get(ctx.guild.roles, name="Aldeanos")
+
         # User's info file path
         filename = constants.users_file
 
@@ -49,6 +51,8 @@ class bind_cmd(commands.Cog):
         manage_users.add_new_user(filename,Discord_id,aoe_id)
 
         await ctx.send(f'el usuario <@{Discord_id}> ahora esta registrado')
+        await ctx.author.add_roles(discord_new_role)
+        await ctx.send(f"{ctx.author.mention} ahora pertenece a los {discord_new_role.name}")
         
       
         

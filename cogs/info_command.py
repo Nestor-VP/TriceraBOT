@@ -69,7 +69,7 @@ class info_cmd(commands.Cog):
             embed.add_field(name="", value=f"**Rank team: **{rank_team}",inline=False)
             embed.add_field(name="", value=f"**AOE role: **{bot_role} ",inline=False)
             embed.set_thumbnail(url=user.avatar.url)
-            embed.set_image(url='https://i.imgur.com/UoKS5Tr.png')
+            embed.set_image(url=manage_users.get_avatar(bot_role))
 
             
             await ctx.send(embed=embed)

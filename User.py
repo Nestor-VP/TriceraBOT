@@ -17,7 +17,7 @@ class BotUser:
                 "aoe_name": self.fetch_aoe_name(aoe_id),
                 "elo_single": self.fetch_elo_single(aoe_id),
                 "elo_team": self.fetch_elo_team(aoe_id),
-                "ladder_role": "villager",
+                "ladder_role": "Aldeano",
                 "rank_single": 0,
                 "rank_team": 0
             }
@@ -76,6 +76,11 @@ class BotUser:
     @key_id.setter
     def key_id(self, new_key):
         self._user_dictionary[new_key] = self._user_dictionary.pop(self.key_id)
+    
+    # role setter
+    @role.setter
+    def role(self,new_role):
+        self._user_dictionary[self.key_id]["ladder_role"] = new_role
 
     
     #Methods 

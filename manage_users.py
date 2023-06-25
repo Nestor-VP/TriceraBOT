@@ -15,6 +15,7 @@ import AOE_API_constants as constants
 import discord
 from discord.ext import commands
 from discord import Embed
+import Avatars
 
 
 # verify_new_user -> verifies if a discord.id is already registered
@@ -57,11 +58,12 @@ def sort_users(json_file,elo_type,rank_type):
 
     sorted_users = sorted(data.keys(),key=lambda x:data[x][elo_type],reverse=True)
 
-    #print(sorted_users)
+    print(sorted_users)
 
     #sorted_dictionary = {key: data[key] for key in sorted_users}
 
     position = 1
+    
 
     for key in sorted_users:
         
@@ -74,6 +76,65 @@ def sort_users(json_file,elo_type,rank_type):
     with open(json_file,'w') as users_list:
         json.dump(data, users_list)
 
+
+
+# Calc User-AOE-role based on his elo_single
+def calc_role(elo):
+
+    intervals = [(800 + i * 200, 800 + (i + 1) * 200) for i in range(5)]
+    values = ['Aldeano', 'Milicia', 'Hombre de Armas', 'Espadachín', 'Espada Mandoble', 'Campeón', 'Legionario']
+    
+    for i in range(len(intervals)):
+        interval = intervals[i]
+        value = values[i+1]
+        print(i)
+        if elo >= interval[0] and elo < interval[1]:
+            return value
+    
+    if elo < 800:
+        return values[0]
+    elif elo >= 1800:
+        return values[6]
+    
+
+# Get_role_name : Returns the role-name(Exactly how they are named in the discord-guild)
+
+def get_role_name(role):
+    cases = {
+        'Aldeano': 'Aldeanos',
+        'Milicia': 'Milicias',
+        'Hombre de Armas': 'Hombres de armas',
+        'Espadachín': 'Espadachines',
+        'Espada Mandoble': 'Espadas Mandobles',
+        'Campeón': 'Campeones',
+        'Legionario': 'Legionarios',
+    }
+
+    return cases.get(role, 'Aldeanos')
+
+
+def get_avatar(role):
+    cases = {
+        'Aldeano': Avatars.AV1,
+        'Milicia': Avatars.AV2,
+        'Hombre de Armas': Avatars.AV3,
+        'Espadachín': Avatars.AV4,
+        'Espada Mandoble': Avatars.AV5,
+        'Campeón': Avatars.AV6,
+        'Legionario': Avatars.AV7,
+    }
+
+    return cases.get(role, 'Aldeanos')
+
+
+
+
+
+
+
+
+
+   
 
 
 

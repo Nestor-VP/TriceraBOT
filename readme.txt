@@ -1,1 +1,13 @@
-https://aoe2.net/api/leaderboard?game=aoe2de&leaderboard_id=4&start=1&count=1&search=triceratops3251
+Installation:
+
+# Linux/macOS
+python3 -m pip install -U discord.py
+
+# Windows
+py -3 -m pip install -U discord.py
+
+
+pip install python-dotenv
+
+
+pip install -U table2ascii
