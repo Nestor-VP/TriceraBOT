@@ -43,7 +43,7 @@ def add_new_user(json_file,discord_id,aoe_id):
         data.update(new_user.dictionary)
         json.dump(data, new_list)
     
-    print("data updated")
+    #print("data updated")
 
 
 # Sorts users-file list according to 1 parameter
@@ -58,7 +58,7 @@ def sort_users(json_file,elo_type,rank_type):
 
     sorted_users = sorted(data.keys(),key=lambda x:data[x][elo_type],reverse=True)
 
-    print(sorted_users)
+    #print(sorted_users)
 
     #sorted_dictionary = {key: data[key] for key in sorted_users}
 
@@ -87,7 +87,7 @@ def calc_role(elo):
     for i in range(len(intervals)):
         interval = intervals[i]
         value = values[i+1]
-        print(i)
+        
         if elo >= interval[0] and elo < interval[1]:
             return value
     
