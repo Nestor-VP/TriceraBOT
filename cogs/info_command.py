@@ -35,8 +35,10 @@ class info_cmd(commands.Cog):
 
         if username is None:
             username = ctx.author.id
+            
         else:
             username= username.strip("@<>")
+            
         
         #Deploy some code that search in JSON if there's a Key with username-value
         user_exist = manage_users.verify_new_user(filename,username)
@@ -68,8 +70,8 @@ class info_cmd(commands.Cog):
             embed.add_field(name="", value=f"**ELO team: **{elo_team}",inline=False)
             embed.add_field(name="", value=f"**Rank team: **{rank_team}",inline=False)
             embed.add_field(name="", value=f"**AOE role: **{bot_role} ",inline=False)
-            embed.set_thumbnail(url=user.avatar.url)
-            embed.set_image(url=manage_users.get_avatar(bot_role))
+            # embed.set_thumbnail(url=user.avatar.url)
+            embed.set_thumbnail(url=manage_users.get_avatar(bot_role))
 
             
             await ctx.send(embed=embed)

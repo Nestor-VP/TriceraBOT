@@ -15,12 +15,12 @@
    - [x] add image
    - [x] Create Player Card with embeds
 4. [x] Make BOT commands case unsensitive
-5. [ ] Make Bot Set Roles
+5. [x] Make Bot Set Roles
 6. [x] Work with JSON files
     - [x] Read Data from JSON
     - [x] Edit JSON file
     - [x] Sort Data from a JSON file
-7. [ ] Optimize Code
+7. [x] Optimize Code
    - [x] functions
    - [x] Classes
    - [x] Define Constants
@@ -40,7 +40,7 @@
    > Unbinds Discord account with associated AOE-account
    > User aoe2-role will be deleted and set to channel-default-role
 
-3. [ ] !rebind  UserID
+3. [x] !rebind  UserID
    > Rebinds Discord account with a new AOE account
    > Users aoe2-role will be set to default-player-role ( villager)
 
@@ -48,13 +48,13 @@
    > Retrieves Desired user Player Card  
    > if empty retrieves command.author Player Card
 
-5. [ ] !update
+5. [x] !update
    > Updates Command.author Player Card
 
 6. [ ] !verify Discord.User
    > Admins command to verify Player Identity
 
-7. [ ] !rebind UserID
+7. [x] !rebind UserID
    > Command to rebind Discord Account with new AOE account  
    > WARNING: You will lose your verification
 
@@ -77,7 +77,7 @@
  - [x] RM 1v1 ELO
  - [x] RM TG ELO
  - [ ] Unranked ELO
- - [ ] Ladder Role
+ - [x] Ladder Role
  - [x] Ladder Role Avatar
     
    

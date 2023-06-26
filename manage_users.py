@@ -3,10 +3,10 @@
 # function list:
 # verify_new_user
 # add_new_user
-# modify_user
-# delete_user
 # Sort_user
-# update_leaderboard
+# calc_role
+# get_role_name
+# get_avatar
 
 
 import json

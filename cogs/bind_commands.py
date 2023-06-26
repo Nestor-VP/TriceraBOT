@@ -1,9 +1,6 @@
 # Commands for Binding Discord-User with an AOE-account
 # Command List:
 #   !bind: Binds Discord.Account with AOE Account
-#   !unbind: Deletes association among Discord.Account and AOE account
-#   !rebind: Deletes old association and creates a new one.
-# Status: Working
 
 
 import discord

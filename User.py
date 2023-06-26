@@ -1,12 +1,12 @@
 # Defining the BotUser Class:
-# This class contains all the required user information
+# Attribute: A dictionary containing User-AOE-Info ( Aoe-id , Aoe-name , ELOs , etc)
+# Methods : Getters and Setters and Fetch-Methods( to retrive data from the AOE-API)
 # 
+
+
 import json
 import AOE_API_constants as aoe_cts
 from urllib.request import urlopen
-
-
-
 
 class BotUser:
     def __init__(self, discord_id, aoe_id ):
@@ -165,15 +165,6 @@ class BotUser:
             return 0
 
 
-
-    
-
-"""
-
-# Create an instance of MyClass
-my_instance = BotUser(231321,321321)
-
-"""
 
 
 
