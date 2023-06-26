@@ -43,32 +43,41 @@ class update_cmd(commands.Cog):
 
             role_name= manage_users.get_role_name(old_role)
             discord_old_role = discord.utils.get(ctx.guild.roles, name=role_name)
+            discord_dev_role= discord.utils.get(ctx.guild.roles, name="Developers")
 
             # Update user data
             aoe_user = BotUser(Discord_id,aoe_id)
 
-            # Retrieve updated-elo-1v1
-            new_elo = aoe_user.elo_single
+            if old_role=="Developer":
 
-            # Calc new role
-            new_role= manage_users.calc_role(new_elo)
+                pass
 
-            # Save new-role in user-card
-            aoe_user.role = new_role
+            elif discord_dev_role in ctx.author.roles:
 
-            # Returns the role-name(Exactly how they are named in the discord-guild)
-            # Playerd card role and Discord-role names are a little different because of plurals
-            role_name = manage_users.get_role_name(new_role)
+                aoe_user.role = "Developer"
+                
 
-            discord_new_role = discord.utils.get(ctx.guild.roles, name=role_name)
+            else:
 
+                # Retrieve updated-elo-1v1
+                new_elo = aoe_user.elo_single
 
-            
+                # Calc new role
+                new_role= manage_users.calc_role(new_elo)
 
-            if old_role != new_role:
-                await ctx.author.add_roles(discord_new_role)
-                await ctx.author.remove_roles(discord_old_role)
-                await ctx.send(f"{ctx.author.mention} ahora pertenece a los '{discord_new_role.name}'")
+                # Save new-role in user-card
+                aoe_user.role = new_role
+
+                # Returns the role-name(Exactly how they are named in the discord-guild)
+                # Playerd card role and Discord-role names are a little different because of plurals
+                role_name = manage_users.get_role_name(new_role)
+
+                discord_new_role = discord.utils.get(ctx.guild.roles, name=role_name)            
+
+                if old_role != new_role:
+                    await ctx.author.add_roles(discord_new_role)
+                    await ctx.author.remove_roles(discord_old_role)
+                    await ctx.send(f"{ctx.author.mention} ahora pertenece a los '{discord_new_role.name}'")
 
 
 

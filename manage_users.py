@@ -122,6 +122,7 @@ def get_avatar(role):
         'Espada Mandoble': Avatars.AV5,
         'Campeón': Avatars.AV6,
         'Legionario': Avatars.AV7,
+        'Developer': Avatars.AV_DEV
     }
 
     return cases.get(role, 'Aldeanos')

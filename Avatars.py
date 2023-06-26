@@ -8,3 +8,4 @@ AV4 = 'https://i.imgur.com/ga4cTRa.png'  # long swordman
 AV5 = 'https://i.imgur.com/F1IXplQ.png'  # two handed swordman
 AV6 = 'https://i.imgur.com/Nl0jbJs.png'  # Champion
 AV7 =  'https://i.imgur.com/7e2bIUP.png' # Legionary
+AV_DEV= 'https://i.imgur.com/PAdqmHu.png'  # Avatar for developers
