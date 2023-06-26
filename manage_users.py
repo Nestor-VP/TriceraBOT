@@ -68,6 +68,7 @@ def sort_users(json_file,elo_type,rank_type):
     for key in sorted_users:
         
         data[key][rank_type]= position
+        
         position += 1
 
 
@@ -126,6 +127,31 @@ def get_avatar(role):
     }
 
     return cases.get(role, 'Aldeanos')
+
+"""
+def rank_table(elo_type):
+
+    filename = constants.users_file
+
+    with open(filename,'r') as users_list:
+        data = json.load(users_list)
+
+    sorted_users = sorted(data.keys(),key=lambda x:data[x][elo_type],reverse=True)
+
+    if elo_type == "elo_single":
+        pass
+    elif elo_type== "elo_team":
+        pass
+    else:
+        return
+
+    table=[]
+    for key in sort_users:
+        table.append([data[key]])
+
+    return
+
+"""
 
 
 
