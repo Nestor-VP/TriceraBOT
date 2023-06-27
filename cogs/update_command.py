@@ -50,7 +50,8 @@ class update_cmd(commands.Cog):
 
             if old_role=="Developer":
 
-                pass
+                aoe_user.role = "Developer"
+                
 
             elif discord_dev_role in ctx.author.roles:
 

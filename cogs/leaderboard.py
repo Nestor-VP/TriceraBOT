@@ -45,18 +45,19 @@ class leaderboard_cmd(commands.Cog):
 
             elo_single=data[key]["elo_single"]
 
-                # GOT SOME PROBLEMS RETRIEVING discord-guild-nickname  --> WILL TRY TO FIX IT in a future
-                #int_key= int(key)
-               # username = await ctx.guild.get_member(int_key)
-               # nickname=username.nick
+                
+            int_key= int(key)
+            guild = await self.bot.fetch_guild(1117856688964390952)
+            username = await guild.fetch_member(int_key)
+            nickname=username.display_name
+            
             aoe_name = data[key]["aoe_name"]
-            table.append([position,elo_single,aoe_name])
+            table.append([position,elo_single,nickname,aoe_name])
             position += 1
 
-            header=["Rank", "ELO", "nick-AOE"]
-            output = t2a(header,table,style=PresetStyle.thin_compact)
 
-            
+        header=["Rank", "ELO","nick-discord","nick-AOE"]
+        output = t2a(header,table,style=PresetStyle.thin_box)   
         await channel.send(f"```\nLeaderboard- Random Map - 1v1\n{output}\n```")
         
         
@@ -74,17 +75,17 @@ class leaderboard_cmd(commands.Cog):
 
                 elo_team=data[key]["elo_team"]
 
-                # GOT SOME PROBLEMS RETRIEVING discord-guild-nickname  --> WILL TRY TO FIX IT in a future
-                #int_key= int(key)
-                #username = await ctx.guild.get_member(int_key)
-                #nickname=username.nick
+                int_key= int(key)
+                guild = await self.bot.fetch_guild(1117856688964390952)
+                username = await guild.fetch_member(int_key)
+                nickname=username.display_name
+
                 aoe_name = data[key]["aoe_name"]
-                table.append([position,elo_team,aoe_name])
+                table.append([position,elo_team,nickname,aoe_name])
                 position += 1
 
-        header=["Rank", "ELO", "nick-AOE"]
-        output = t2a(header,table,style=PresetStyle.thin_compact)
-
+        header=["Rank", "ELO","nick-discord", "nick-AOE"]
+        output = t2a(header,table,style=PresetStyle.thin_box)
             
         await channel.send(f"```\nLeaderboard- Random Map - Team\n{output}\n```")
 
@@ -122,19 +123,18 @@ class leaderboard_cmd(commands.Cog):
 
                 elo_single=data[key]["elo_single"]
 
-                # GOT SOME PROBLEMS RETRIEVING discord-guild-nickname  --> WILL TRY TO FIX IT in a future
-                #int_key= int(key)
-               # username = await ctx.guild.get_member(int_key)
-               # nickname=username.nick
+                int_key= int(key)
+                username = await ctx.guild.fetch_member(int_key)
+                nickname=username.display_name
+                #print(nickname)
                 aoe_name = data[key]["aoe_name"]
-                table.append([position,elo_single,aoe_name])
-                position += 1
-
-            header=["Rank", "ELO", "nick-AOE"]
-            output = t2a(header,table,style=PresetStyle.thin_compact)
-
+                table.append([position,elo_single,nickname,aoe_name])
+                position += 1         
             
+            header=["Rank", "ELO","nick-discord","nick-AOE"]
+            output = t2a(header,table,style=PresetStyle.thin_box)
             await ctx.send(f"```\nLeaderboard- Random Map 1v1\n{output}\n```")
+            
 
 
         elif elo_key in ['t', 'T']:
@@ -152,19 +152,17 @@ class leaderboard_cmd(commands.Cog):
 
                 elo_team=data[key]["elo_team"]
 
-                # GOT SOME PROBLEMS RETRIEVING discord-guild-nickname  --> WILL TRY TO FIX IT in a future
-                #int_key= int(key)
-                #username = await ctx.guild.get_member(int_key)
-                #nickname=username.nick
+                int_key= int(key)
+                username = await ctx.guild.fetch_member(int_key)
+                nickname=username.display_name
                 aoe_name = data[key]["aoe_name"]
-                table.append([position,elo_team,aoe_name])
+                table.append([position,elo_team,nickname,aoe_name])
                 position += 1
 
-            header=["Rank", "ELO", "nick-AOE"]
-            output = t2a(header,table,style=PresetStyle.thin_compact)
-
-            
+            header=["Rank", "ELO","nick-discord","nick-AOE"]
+            output = t2a(header,table,style=PresetStyle.thin_box)            
             await ctx.send(f"```\nLeaderboard- Random Map Team\n{output}\n```")
+
         else:
             await ctx.send("For 1v1 Leaderboard, type: !Top S")
             await ctx.send("For Team Leaderboard, type: !Top T")
