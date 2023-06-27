@@ -39,7 +39,7 @@ class bind_cmd(commands.Cog):
 
         if is_new == True:
             await ctx.send(f'ERROR: el usuario <@{Discord_id}> ya existe')
-            await ctx.send(f'Para ver la lista de commandos , digitar: !List')
+            #await ctx.send(f'Para ver la lista de commandos , digitar: !List')
             return
         
         else:

@@ -18,7 +18,7 @@ class rebind_cmd(commands.Cog):
         print('Rebind ready')
     
 
-    # !Bind command: Command to Bind Discord.Account with AOE Account
+    # !rebind command: Command to Re-Bind Discord.Account with AOE Account
     # aoe_id: AOE User-ID-number
     @commands.command()
     async def rebind(self,ctx,aoe_id):

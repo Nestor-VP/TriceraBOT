@@ -19,6 +19,8 @@ import Avatars
 
 
 # verify_new_user -> verifies if a discord.id is already registered
+# True if user exist in database
+# False if user doesnt exist in databasa - New User
 def verify_new_user(json_file,key):
     with open(json_file, 'r') as users_list:
         data=json.load(users_list)
