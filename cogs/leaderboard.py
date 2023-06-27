@@ -25,6 +25,7 @@ class leaderboard_cmd(commands.Cog):
         
         # First task: Clear History in Hall-of-Fame Channel
         channel = self.bot.get_channel(1122349454918430772)
+        guild = await self.bot.fetch_guild(1117856688964390952)
         if channel is not None:
                 async for message in channel.history(limit=None):
                     await message.delete()
@@ -47,7 +48,7 @@ class leaderboard_cmd(commands.Cog):
 
                 
             int_key= int(key)
-            guild = await self.bot.fetch_guild(1117856688964390952)
+            #guild = await self.bot.fetch_guild(1117856688964390952)
             username = await guild.fetch_member(int_key)
             nickname=username.display_name
             
@@ -76,7 +77,7 @@ class leaderboard_cmd(commands.Cog):
                 elo_team=data[key]["elo_team"]
 
                 int_key= int(key)
-                guild = await self.bot.fetch_guild(1117856688964390952)
+                #guild = await self.bot.fetch_guild(1117856688964390952)
                 username = await guild.fetch_member(int_key)
                 nickname=username.display_name
 
