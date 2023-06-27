@@ -19,7 +19,8 @@ class BotUser:
                 "elo_team": self.fetch_elo_team(aoe_id),
                 "ladder_role": "Aldeano",
                 "rank_single": 0,
-                "rank_team": 0
+                "rank_team": 0,
+                "verified" : "\u274C"
             }
         }
 
@@ -71,6 +72,10 @@ class BotUser:
     def rank_team(self):
         return self._user_dictionary[self.key_id]["rank_team"]
     
+    @property
+    def verified(self):
+        return self._user_dictionary[self.key_id]["verified"]
+    
 
     # Key_id setter
     @key_id.setter
@@ -81,6 +86,10 @@ class BotUser:
     @role.setter
     def role(self,new_role):
         self._user_dictionary[self.key_id]["ladder_role"] = new_role
+
+    @verified.setter
+    def verified(self,new_value):
+        self._user_dictionary[self.key_id]["verified"]= new_value
 
     
     #Methods 

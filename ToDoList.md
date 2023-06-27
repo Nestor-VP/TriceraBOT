@@ -24,9 +24,9 @@
    - [x] functions
    - [x] Classes
    - [x] Define Constants
-   - [x] Create Modules
-8. [ ] Show Table on Discord
-9. [ ] Set User and Admin Commands
+   - [x] Create Modules (Cogs)
+8. [x] Show Table on Discord
+9. [x] Set User and Admin Commands
 10. [ ] Bot Data self-update function
 
 ## BOT Commands List
@@ -36,7 +36,7 @@
    > - AOE_ID = AOE player-ID-number
    > New player will start with a defaul-role (villager)
 
-2. [ ] !unbind
+2. [x] !unbind (Admin command)
    > Unbinds Discord account with associated AOE-account
    > User aoe2-role will be deleted and set to channel-default-role
 
@@ -51,20 +51,15 @@
 5. [x] !update
    > Updates Command.author Player Card
 
-6. [ ] !verify Discord.User
+6. [x] !verify Discord.User
    > Admins command to verify Player Identity
 
 7. [x] !rebind UserID
    > Command to rebind Discord Account with new AOE account  
    > WARNING: You will lose your verification
 
-8. [ ] !RemoveBind
-    > Unlinks Discord.Account with AOE Account  
-    > User is removed from Local Ladder  
-    > All User Stored Data is deleted  
-    > User will Lose his "Ladder Role"
 
-9.  [ ] !AdminRemove Discord.member
+8.  [x] !AdminRemove Discord.member  ( same as !unbind)
     > Admin Command to manually remove a Discord.member from local ladder.  
     > All User Stored Data is deleted  
     > User will Lose his "Ladder Role"
@@ -76,7 +71,7 @@
  - [x] AoE2 nickname
  - [x] RM 1v1 ELO
  - [x] RM TG ELO
- - [ ] Unranked ELO
+ - [ ] Unranked ELO ( cant fetch data from AOE - API)
  - [x] Ladder Role
  - [x] Ladder Role Avatar
     

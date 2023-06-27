@@ -57,19 +57,20 @@ class info_cmd(commands.Cog):
             rank_single=data[key_str]["rank_single"]
             rank_team=data[key_str]["rank_team"]
             bot_role= data[key_str]["ladder_role"]
+            check_status= data[key_str]["verified"]
 
 
             embed = Embed(title= None,
-                          description= f"__**<@{username}> CARD: **__",  # Set the description of the embed
+                          description= f"__**<@{username}> CARD: **__  {check_status}",  # Set the description of the embed
                         color=discord.Color.green()
                           )
             
-            embed.add_field(name="", value=f"**AOE nickname: **{aoe_name} ",inline=False)
-            embed.add_field(name="", value=f"**ELO 1v1: **{elo_single}",inline=False)
-            embed.add_field(name="", value=f"**Rank 1v1: **{rank_single}",inline=False)
-            embed.add_field(name="", value=f"**ELO team: **{elo_team}",inline=False)
-            embed.add_field(name="", value=f"**Rank team: **{rank_team}",inline=False)
-            embed.add_field(name="", value=f"**AOE role: **{bot_role} ",inline=False)
+            embed.add_field(name="", value=f"**AOE nickname: ** {aoe_name} ",inline=False)
+            embed.add_field(name="", value=f"**ELO 1v1: ** {elo_single}",inline=False)
+            embed.add_field(name="", value=f"**Rank 1v1: ** {rank_single}",inline=False)
+            embed.add_field(name="", value=f"**ELO team: ** {elo_team}",inline=False)
+            embed.add_field(name="", value=f"**Rank team: ** {rank_team}",inline=False)
+            embed.add_field(name="", value=f"**AOE role: ** {bot_role} ",inline=False)
             # embed.set_thumbnail(url=user.avatar.url)
             embed.set_thumbnail(url=manage_users.get_avatar(bot_role))
 

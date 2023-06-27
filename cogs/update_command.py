@@ -40,6 +40,7 @@ class update_cmd(commands.Cog):
             
             aoe_id = data[user_key]["aoe_id"]
             old_role = data[user_key]["ladder_role"]
+            status= data[user_key]["verified"]
 
             role_name= manage_users.get_role_name(old_role)
             discord_old_role = discord.utils.get(ctx.guild.roles, name=role_name)
@@ -47,6 +48,7 @@ class update_cmd(commands.Cog):
 
             # Update user data
             aoe_user = BotUser(Discord_id,aoe_id)
+            aoe_user.verified=status
 
             if old_role=="Developer":
 
