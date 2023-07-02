@@ -46,10 +46,14 @@ class bind_cmd(commands.Cog):
             pass
 
         manage_users.add_new_user(filename,Discord_id,aoe_id)
+        manage_users.sort_users(filename,"elo_single","rank_single")
+        manage_users.sort_users(filename,"elo_team","rank_team")
+
+        
 
         await ctx.send(f'el usuario <@{Discord_id}> ahora esta registrado')
-        await ctx.author.add_roles(discord_new_role)
-        await ctx.send(f"{ctx.author.mention} ahora pertenece a los {discord_new_role.name}")
+        await ctx.author.add_roles(discord_new_role) # Cambiar a Get Role
+        await ctx.send(f"{ctx.author.mention} ahora pertenece a los {discord_new_role.name}") # Cambiar a rol calculado
         
       
         

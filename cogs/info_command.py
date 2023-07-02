@@ -31,6 +31,8 @@ class info_cmd(commands.Cog):
     @commands.command()
     async def info(self,ctx,username: str=None):
 
+        # if username is a discord Member or User discord object
+
         filename = constants.users_file
 
         if username is None:
@@ -38,6 +40,7 @@ class info_cmd(commands.Cog):
             
         else:
             username= username.strip("@<>")
+            # username = username.id
             
         
         #Deploy some code that search in JSON if there's a Key with username-value
@@ -71,7 +74,7 @@ class info_cmd(commands.Cog):
             embed.add_field(name="", value=f"**ELO team: ** {elo_team}",inline=False)
             embed.add_field(name="", value=f"**Rank team: ** {rank_team}",inline=False)
             embed.add_field(name="", value=f"**AOE role: ** {bot_role} ",inline=False)
-            # embed.set_thumbnail(url=user.avatar.url)
+            # embed.set_thumbnail(url=user.avatar)  //  if user hasnt upload an avatar return None , consider using display_avatar
             embed.set_thumbnail(url=manage_users.get_avatar(bot_role))
 
             

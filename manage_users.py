@@ -7,6 +7,7 @@
 # calc_role
 # get_role_name
 # get_avatar
+# update_server_stats   - new function v2 - update all user's ELOs and Ratings
 
 
 import json
@@ -142,6 +143,36 @@ def emoji_2ascii(value):
         return "■"
     else:
         return "x"
+    
+
+# Update_server_stats automatically
+# command to update ELOS and Ratins from all registered users
+# Recieves as parameter user's list file location
+
+def update_server_stats(json_file):
+
+    with open(json_file,'r') as data:
+        users_list = json.load(data)
+    
+    for key in users_list:
+        aoe_id = users_list[key]["aoe_id"]
+        ladder_role= users_list[key]["ladder_role"]
+        verified = users_list[key]["verified"]
+
+        aoe_user= BotUser(key,aoe_id)
+
+        aoe_user.verified = verified
+        aoe_user.role = ladder_role
+
+        users_list[key]=aoe_user.value
+    
+    with open(json_file, mode='w') as new_list:
+                json.dump(users_list, new_list)
+
+    sort_users(json_file,"elo_single","rank_single")
+    sort_users(json_file,"elo_team","rank_team") 
+
+
 
 
 

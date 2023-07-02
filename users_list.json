@@ -1,1 +1,12 @@
-{"323486994040750081": {"aoe_id": "5653631", "aoe_name": "Triceratops3251", "elo_single": 0, "elo_team": 1130, "ladder_role": "Developer", "rank_single": 1, "rank_team": 1, "verified": "\u2705"}}
+{
+    "323486994040750081": {
+        "aoe_id": "5653631",
+        "aoe_name": "Triceratops3251",
+        "elo_single": 0,
+        "elo_team": 1130,
+        "ladder_role": "Developer",
+        "rank_single": 1,
+        "rank_team": 1,
+        "verified": "\u2705"
+    }
+}

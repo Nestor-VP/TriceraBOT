@@ -4,6 +4,9 @@
 ## Aoe2:DE leaderboard URL on Ao2.net API
 AOE2 = "https://aoe2.net/api/leaderboard?game=aoe2de&leaderboard_id="
 
+## RELIC LINK community API - personal stats endpoint
+AOE_API = "https://aoe-api.reliclink.com/community/leaderboard/GetPersonalStat?title=age2&profile_ids=["
+
 
 ## Leaderboard Constants
 ### aoe2 unranked leaderboard id
