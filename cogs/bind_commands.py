@@ -29,8 +29,7 @@ class bind_cmd(commands.Cog):
     async def bind(self,ctx,aoe_id):
 
         Discord_id = ctx.message.author.id  # Get Command-author Discord ID
-
-        discord_new_role = discord.utils.get(ctx.guild.roles, name="Aldeanos")
+        user_key = str(Discord_id)
 
         # User's info file path
         filename = constants.users_file
@@ -49,10 +48,16 @@ class bind_cmd(commands.Cog):
         manage_users.sort_users(filename,"elo_single","rank_single")
         manage_users.sort_users(filename,"elo_team","rank_team")
 
+        with open(filename, 'r') as users_list:
+                data=json.load(users_list)
+        
+        new_role = data[user_key]["ladder_role"]
+        role_name= manage_users.get_role_name(new_role)
+        discord_new_role = discord.utils.get(ctx.guild.roles, name=role_name)
         
 
         await ctx.send(f'el usuario <@{Discord_id}> ahora esta registrado')
-        await ctx.author.add_roles(discord_new_role) # Cambiar a Get Role
+        await ctx.author.add_roles(discord_new_role) 
         await ctx.send(f"{ctx.author.mention} ahora pertenece a los {discord_new_role.name}") # Cambiar a rol calculado
         
       
