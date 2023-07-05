@@ -65,17 +65,18 @@ class info_cmd(commands.Cog):
 
 
             embed = Embed(title= None,
-                          description= f"__**<@{username}> CARD: **__  {country}",  # Set the description of the embed
+                          description= f"__**<@{username}> CARD {country} **__ ",  # Set the description of the embed
                         color=discord.Color.green()
                           )
             
-            embed.add_field(name="", value=f"**AOE nickname: ** {aoe_name} ",inline=False)
+            embed.add_field(name="", value=f"**AOE nickname: ** {aoe_name}",inline=False) #,inline=False
             embed.add_field(name="", value=f"**ELO 1v1: ** {elo_single}",inline=False)
-            embed.add_field(name="", value=f"**Rank 1v1: ** {rank_single}",inline=False)
+            embed.add_field(name="", value=f"**Rank 1v1: ** {rank_single}°",inline=False)
+            #embed.add_field(name="", value=f" ",inline=True) #change elo1v1 - rank1v1 -ELoTeam - RankTeam  inline=True
             embed.add_field(name="", value=f"**ELO team: ** {elo_team}",inline=False)
-            embed.add_field(name="", value=f"**Rank team: ** {rank_team}",inline=False)
-            embed.add_field(name="", value=f"**AOE role: ** {bot_role} ",inline=False)
-            embed.add_field(name="", value=f"**Identity verify: ** {check_status} ",inline=False)
+            embed.add_field(name="", value=f"**Rank team: ** {rank_team}°",inline=False)
+            embed.add_field(name="", value=f"**Identity verify: ** {check_status}",inline=False)
+            embed.add_field(name="", value=f"**AOE role: ** {bot_role}",inline=False)
             embed.set_thumbnail(url=user.display_avatar)  #//  if user hasnt upload an avatar return None , consider using display_avatar
             embed.set_image(url=manage_users.get_avatar(bot_role))
 
