@@ -156,6 +156,9 @@ def update_server_stats(json_file):
     
     for key in users_list:
         aoe_id = users_list[key]["aoe_id"]
+
+        # this function updates only aoe_2 stats 
+        # Doesnt change Roles or Verified-status
         ladder_role= users_list[key]["ladder_role"]
         verified = users_list[key]["verified"]
 

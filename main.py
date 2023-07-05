@@ -18,11 +18,13 @@ async def on_ready():
 
 # Bot command: Command to load a file extension (specific Cog File)
 @bot.command()
+@commands.has_permissions(administrator=True)
 async def load(ctx,extension):
     await bot.load_extension(f'cogs.{extension}')
 
 # Bot command: Command to unload a file extension ( specific Cog file)
 @bot.command()
+@commands.has_permissions(administrator=True)
 async def unload(ctx,extension):
     await bot.unload_extension(f'cogs.{extension}')
 

@@ -61,10 +61,11 @@ class info_cmd(commands.Cog):
             rank_team=data[key_str]["rank_team"]
             bot_role= data[key_str]["ladder_role"]
             check_status= data[key_str]["verified"]
+            country = data[key_str]["country"]
 
 
             embed = Embed(title= None,
-                          description= f"__**<@{username}> CARD: **__  {check_status}",  # Set the description of the embed
+                          description= f"__**<@{username}> CARD: **__  {country}",  # Set the description of the embed
                         color=discord.Color.green()
                           )
             
@@ -74,8 +75,9 @@ class info_cmd(commands.Cog):
             embed.add_field(name="", value=f"**ELO team: ** {elo_team}",inline=False)
             embed.add_field(name="", value=f"**Rank team: ** {rank_team}",inline=False)
             embed.add_field(name="", value=f"**AOE role: ** {bot_role} ",inline=False)
-            # embed.set_thumbnail(url=user.avatar)  //  if user hasnt upload an avatar return None , consider using display_avatar
-            embed.set_thumbnail(url=manage_users.get_avatar(bot_role))
+            embed.add_field(name="", value=f"**Identity verify: ** {check_status} ",inline=False)
+            embed.set_thumbnail(url=user.display_avatar)  #//  if user hasnt upload an avatar return None , consider using display_avatar
+            embed.set_image(url=manage_users.get_avatar(bot_role))
 
             
             await ctx.send(embed=embed)

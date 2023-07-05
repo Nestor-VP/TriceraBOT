@@ -42,6 +42,12 @@ class bind_cmd(commands.Cog):
             return
         
         else:
+            #  code = Verify ID function
+            # if code == False:
+            #   await ctx.send(f'ERROR: Ingrese un aoe_Id valido')
+            #   await ctx.send(f'Para mayor informacion revise <#Bot-tutorial>')
+            #   return
+            # Else: pass
             pass
 
         manage_users.add_new_user(filename,Discord_id,aoe_id)

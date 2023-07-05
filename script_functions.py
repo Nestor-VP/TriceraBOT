@@ -1,9 +1,11 @@
 
+# Some useful functions 
 
 import AOE_API_constants as ct
 import Avatars as avt
 import os
 from dotenv import load_dotenv
+from datetime import datetime, timezone, timedelta
 
 root = ct.AOE2
 
@@ -18,5 +20,13 @@ def get_token():
 
 #_________________________________________________________
 
+def get_current_hour(timezone_offset):
+    # Calculate the current time with the specified timezone offset
+    current_time = datetime.now(timezone.utc) + timedelta(hours=timezone_offset)
+
+    # Extract the hour from the current time
+    current_hour = current_time.strftime("%H:%M:%S")
+    # Print the current hour
+    return current_hour
 
 

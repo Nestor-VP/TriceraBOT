@@ -28,21 +28,22 @@ class member_events(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self,member):
         print(f'{member} ha entrado al servidor')
+        print(f"{member.id}")
 
         # Remember to replace with Channel Ids
-        channel = self.bot.get_channel(1124963780292509707)
+        channel = self.bot.get_channel(1122349390670073877)
         new_member_role = discord.utils.get(member.guild.roles, name="Aldeanos") 
         await member.add_roles(new_member_role)
         await channel.send(f'Bienvenido {member.mention} , ahora perteneces a los {new_member_role.name}')
-        await channel.send(f'Recuerda revisar la seccion <#{1124177975118680118}>') # Leer importante
-        await channel.send(f'Para saber más de Teuton-BoT , revisar: <#{1124177975118680118}>') #Bot tutorial
+        await channel.send(f'Recuerda revisar la seccion <#{1122358683007983748}>') # Leer importante
+        await channel.send(f'Para saber más de Teuton-BoT , revisar: <#{1122350318529818736}>') #Bot tutorial
     
 
     @commands.Cog.listener()
     async def on_member_remove(self,member):
         
         print(f'{member} ha salido del servidor')
-        channel = self.bot.get_channel(1124963780292509707)  # Replace with the actual ID of the channel
+        channel = self.bot.get_channel(1125483902224568410)  # Replace with the actual ID of the channel
         
 
         filename = constants.users_file

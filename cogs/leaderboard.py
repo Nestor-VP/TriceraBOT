@@ -4,10 +4,12 @@ from discord.ext import commands, tasks
 from table2ascii import table2ascii as t2a, PresetStyle, Alignment
 import AOE_API_constants as constants
 import manage_users
+import script_functions
 
 class leaderboard_cmd(commands.Cog):
     def __init__(self,bot):
         self.bot = bot
+        self.interval_minutes = 10
         self.rank_printer.start()
     
     def cog_unload(self):
@@ -20,12 +22,14 @@ class leaderboard_cmd(commands.Cog):
         print('Leaderboard commands ready')
 
 
-    @tasks.loop(minutes=30.0)
+    @tasks.loop(minutes=10)
     async def rank_printer(self):
         
         # First task: Clear History in Hall-of-Fame Channel
         channel = self.bot.get_channel(1122349454918430772)
         guild = await self.bot.fetch_guild(1117856688964390952)
+        
+
         if channel is not None:
                 async for message in channel.history(limit=None):
                     await message.delete()
@@ -33,6 +37,8 @@ class leaderboard_cmd(commands.Cog):
         # Second task: Print Elo-Ratings-1v1
 
         filename= constants.users_file
+
+        manage_users.update_server_stats(filename)
 
         with open(filename,'r') as users_list:
                 data = json.load(users_list)
@@ -88,6 +94,12 @@ class leaderboard_cmd(commands.Cog):
         output = t2a(header,table,style=PresetStyle.thin_box)            
         await channel.send(f"```\nLeaderboard Random Map - Team\n{output}\n```")
         await channel.send(f"```Iv: Identity verify | verified user = ■  | non verified = x```")
+        # get Argentina's time
+        arg_time = script_functions.get_current_hour(-3)
+        # get Peru time
+        peru_time = script_functions.get_current_hour(-5)
+        await channel.send(f"```Last update: Perú ( {peru_time} ) | Argentina ( {arg_time} ) ```")
+
 
 
         
@@ -96,6 +108,18 @@ class leaderboard_cmd(commands.Cog):
     async def before_printer(self):
         print('waiting...')
         await self.bot.wait_until_ready()
+    
+    
+    @commands.command()
+    @commands.has_role("Developers")
+    async def set_interval(self, ctx, minutes: int):
+        if minutes <= 0:
+            await ctx.send("Please provide a positive interval.")
+            return
+
+        self.interval_minutes = minutes
+        self.rank_printer.change_interval(minutes=self.interval_minutes)
+        await ctx.send(f"Interval set to {self.interval_minutes} minutes.")
     
 
 
