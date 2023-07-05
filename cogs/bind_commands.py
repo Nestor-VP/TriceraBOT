@@ -72,7 +72,7 @@ class bind_cmd(commands.Cog):
         new_role = data[user_key]["ladder_role"]
         role_name= manage_users.get_role_name(new_role)
         discord_new_role = discord.utils.get(ctx.guild.roles, name=role_name)
-        functions.add_one_user
+        functions.add_one_user()
         
         await ctx.send(f'el usuario <@{Discord_id}> ahora esta registrado')
         await ctx.author.add_roles(discord_new_role) 

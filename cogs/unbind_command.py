@@ -32,14 +32,7 @@ class unbind_cmd(commands.Cog):
         user_key = str(user_id)
 
         aoe_roles = ["Aldeanos","Milicias","Hombres de armas","Espadachines","Espadas Mandobles","Campeones","Legionarios"]
-
-        for role in aoe_roles:
-
-            aoe_role = discord.utils.get(ctx.guild.roles, name=role)
-            if aoe_role in user.roles:
-                await user.remove_roles(aoe_role)
-        
-        await ctx.send(f'Los roles-AOE de {user.mention} fueron borrados')      
+      
        
         # User's info file path
         filename = constants.users_file
@@ -47,6 +40,15 @@ class unbind_cmd(commands.Cog):
         is_new = manage_users.verify_new_user(filename,user_id)
 
         if is_new == True:
+
+            for role in aoe_roles:
+
+                aoe_role = discord.utils.get(ctx.guild.roles, name=role)
+                if aoe_role in user.roles:
+                    await user.remove_roles(aoe_role)
+        
+            await ctx.send(f'Los roles-AOE de {user.mention} fueron borrados')    
+
             with open(filename, 'r') as file:
                 data = json.load(file)
 
@@ -59,6 +61,9 @@ class unbind_cmd(commands.Cog):
 
             with open(filename, 'w') as file:
                 json.dump(data, file)
+
+            functions.subtract_one_user()
+            await ctx.send(f"El Usuario {user.mention} ha perdido el registro.")
                 
             
         else:
@@ -67,7 +72,7 @@ class unbind_cmd(commands.Cog):
             
 
                
-        await ctx.send(f"El Usuario {user.mention} ha perdido el registro.")
+        
         
       
         

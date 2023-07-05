@@ -78,5 +78,16 @@ def add_one_user():
     
 #______________________________________________________________________
 
+# subtract -1 on Number of registered users (used when unbind users)
+def subtract_one_user():
+     
+    filename = "./channel_info.json"
+    with open(filename,'r') as file:
+        data = json.load(file)
+    
+    data["registered_users"] -= 1
 
+    with open(filename, mode='w') as file:
+                json.dump(data, file)
 
+#______________________________________________________________________
