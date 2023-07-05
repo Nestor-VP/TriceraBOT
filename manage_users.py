@@ -145,6 +145,8 @@ def emoji_2ascii(value):
         return "x"
     
 
+
+
 # Update_server_stats automatically
 # command to update ELOS and Ratins from all registered users
 # Recieves as parameter user's list file location
