@@ -28,6 +28,16 @@ class bind_cmd(commands.Cog):
     @commands.command()
     async def bind(self,ctx,aoe_id):
 
+        users_number = functions.number_of_users()
+        
+        if users_number < 200:
+            pass
+        else:
+            await ctx.send(f'ERROR: EL REGISTRO NO ESTA DISPONIBLE')
+            await ctx.send(f'se alcanzo el límite de usuarios registrados')
+            return
+        
+
         Discord_id = ctx.message.author.id  # Get Command-author Discord ID
         user_key = str(Discord_id)
              
@@ -62,6 +72,7 @@ class bind_cmd(commands.Cog):
         new_role = data[user_key]["ladder_role"]
         role_name= manage_users.get_role_name(new_role)
         discord_new_role = discord.utils.get(ctx.guild.roles, name=role_name)
+        functions.add_one_user
         
         await ctx.send(f'el usuario <@{Discord_id}> ahora esta registrado')
         await ctx.author.add_roles(discord_new_role) 

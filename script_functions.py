@@ -34,7 +34,7 @@ def get_current_hour(timezone_offset):
     return current_hour
 
 #______________________________________________________________________
-
+# Check if aoe-id was input correctly
 def request_code(aoe_id):
     url = f"https://aoe-api.reliclink.com/community/leaderboard/GetPersonalStat?title=age2&profile_ids=[{aoe_id}]"
 
@@ -51,5 +51,32 @@ def request_code(aoe_id):
             return False
     except URLError as url_error:
             return False
+
+#______________________________________________________________________
+# Return number of registered users
+def number_of_users():
+     
+    filename = "./channel_info.json"
+    with open(filename,'r') as file:
+        data = json.load(file)
+    
+    return data["registered_users"]
+
+
+#______________________________________________________________________
+# Add +1 on Number of registered users (used on a succesful bind)
+def add_one_user():
+     
+    filename = "./channel_info.json"
+    with open(filename,'r') as file:
+        data = json.load(file)
+    
+    data["registered_users"] += 1
+
+    with open(filename, mode='w') as file:
+                json.dump(data, file)
+    
+#______________________________________________________________________
+
 
 
