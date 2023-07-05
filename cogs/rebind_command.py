@@ -23,6 +23,14 @@ class rebind_cmd(commands.Cog):
     @commands.command()
     async def rebind(self,ctx,aoe_id):
 
+        request_check = functions.request_code(aoe_id)
+        if request_check == False:
+                await ctx.send(f"ERROR: Ingrese un aoe_ID valido.") 
+                await ctx.send(f"Para mayor informacion revise <#{1122350318529818736}>")
+                return
+        else:
+            pass
+
         Discord_id = ctx.message.author.id  # Get Command-author Discord ID
 
         discord_new_role = discord.utils.get(ctx.guild.roles, name="Aldeanos")
