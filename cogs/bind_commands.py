@@ -30,6 +30,7 @@ class bind_cmd(commands.Cog):
 
         Discord_id = ctx.message.author.id  # Get Command-author Discord ID
         user_key = str(Discord_id)
+             
 
         # User's info file path
         filename = constants.users_file
@@ -42,13 +43,14 @@ class bind_cmd(commands.Cog):
             return
         
         else:
-            #  code = Verify ID function
-            # if code == False:
-            #   await ctx.send(f'ERROR: Ingrese un aoe_Id valido')
-            #   await ctx.send(f'Para mayor informacion revise <#Bot-tutorial>')
-            #   return
-            # Else: pass
-            pass
+            # Check if aoe_id was input correctly
+            request_check = functions.request_code(aoe_id)
+            if request_check == False:
+                await ctx.send(f"ERROR: Ingrese un aoe_ID valido.") 
+                await ctx.send(f"Para mayor informacion revise <#{1122350318529818736}>")
+                return
+            else:
+                pass            
 
         manage_users.add_new_user(filename,Discord_id,aoe_id)
         manage_users.sort_users(filename,"elo_single","rank_single")
@@ -61,7 +63,6 @@ class bind_cmd(commands.Cog):
         role_name= manage_users.get_role_name(new_role)
         discord_new_role = discord.utils.get(ctx.guild.roles, name=role_name)
         
-
         await ctx.send(f'el usuario <@{Discord_id}> ahora esta registrado')
         await ctx.author.add_roles(discord_new_role) 
         await ctx.send(f"{ctx.author.mention} ahora pertenece a los {discord_new_role.name}") # Cambiar a rol calculado

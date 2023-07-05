@@ -8,7 +8,7 @@ import script_functions as sfx
 token = sfx.get_token()
 
 # Creating a Bot object
-bot = commands.Bot(command_prefix='!',intents=discord.Intents.all(),case_insensitive=True)
+bot = commands.Bot(command_prefix='$',intents=discord.Intents.all(),case_insensitive=True)
 
 
 # Bot event: print  a message when the bot is ready ( online)
