@@ -23,7 +23,7 @@ class leaderboard_cmd(commands.Cog):
         print('Leaderboard commands ready')
 
 
-    @tasks.loop(minutes=10)
+    @tasks.loop(minutes=30)
     async def rank_printer(self):
         
         # First task: Clear History in Hall-of-Fame Channel
@@ -63,6 +63,8 @@ class leaderboard_cmd(commands.Cog):
             aoe_name = data[key]["aoe_name"]
             table.append([position,elo_single,nickname,aoe_name,status])
             position += 1
+            if position == 21:
+                 break
 
 
         header=["Rank", "ELO","nick-discord","nick-AOE","Iv"]      
@@ -92,6 +94,8 @@ class leaderboard_cmd(commands.Cog):
                 aoe_name = data[key]["aoe_name"]
                 table.append([position,elo_team,nickname,aoe_name,status])
                 position += 1
+                if position == 21:
+                    break
 
         header=["Rank", "ELO","nick-discord", "nick-AOE","Iv"]
         output = t2a(header,table,style=PresetStyle.thin_box)            
@@ -160,7 +164,9 @@ class leaderboard_cmd(commands.Cog):
                 nickname=username.display_name
                 aoe_name = data[key]["aoe_name"]
                 table.append([position,elo_single,nickname,aoe_name,status])
-                position += 1         
+                position += 1 
+                if position == 21:
+                    break        
             
             header=["Rank", "ELO","nick-discord","nick-AOE","Iv"]
             output = t2a(header,table,style=PresetStyle.thin_box)
@@ -193,6 +199,8 @@ class leaderboard_cmd(commands.Cog):
                 aoe_name = data[key]["aoe_name"]
                 table.append([position,elo_team,nickname,aoe_name,status])
                 position += 1
+                if position == 21:
+                    break
 
             header=["Rank", "ELO","nick-discord","nick-AOE","Iv"]
             output = t2a(header,table,style=PresetStyle.thin_box)            

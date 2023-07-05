@@ -27,7 +27,7 @@ class admin_cmd(commands.Cog):
     @commands.has_role("Admins")
     async def users(self,ctx):
 
-        users_number = functions.number_of_users
+        users_number = functions.number_of_users()
         await ctx.send(f"Registered members: {users_number}")
     
       

@@ -29,7 +29,7 @@ class update_roles_task(commands.Cog):
         print('update-roles task ready')
 
     
-    @tasks.loop(hours=6.0)
+    @tasks.loop(hours=12.0)
     async def roles_update(self):
 
         guild_id = 1117856688964390952
