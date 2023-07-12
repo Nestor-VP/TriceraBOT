@@ -63,7 +63,7 @@ class leaderboard_cmd(commands.Cog):
             aoe_name = data[key]["aoe_name"]
             table.append([position,elo_single,nickname,aoe_name,status])
             position += 1
-            if position == 21:
+            if position == 11:
                  break
 
 
@@ -94,7 +94,7 @@ class leaderboard_cmd(commands.Cog):
                 aoe_name = data[key]["aoe_name"]
                 table.append([position,elo_team,nickname,aoe_name,status])
                 position += 1
-                if position == 21:
+                if position == 11:
                     break
 
         header=["Rank", "ELO","nick-discord", "nick-AOE","Iv"]
@@ -118,7 +118,7 @@ class leaderboard_cmd(commands.Cog):
     
     
     @commands.command()
-    @commands.has_role("Developers")
+    @commands.has_role("Admins")
     async def set_interval(self, ctx, minutes: int):
         if minutes <= 0:
             await ctx.send("Please provide a positive interval.")
@@ -132,7 +132,7 @@ class leaderboard_cmd(commands.Cog):
 
 
     @commands.command()
-    @commands.has_role("Developers")
+    @commands.has_role("Admins")
     async def top(self,ctx,elo_key: str=None):
 
         filename= constants.users_file
@@ -165,7 +165,7 @@ class leaderboard_cmd(commands.Cog):
                 aoe_name = data[key]["aoe_name"]
                 table.append([position,elo_single,nickname,aoe_name,status])
                 position += 1 
-                if position == 21:
+                if position == 11:
                     break        
             
             header=["Rank", "ELO","nick-discord","nick-AOE","Iv"]
@@ -199,7 +199,7 @@ class leaderboard_cmd(commands.Cog):
                 aoe_name = data[key]["aoe_name"]
                 table.append([position,elo_team,nickname,aoe_name,status])
                 position += 1
-                if position == 21:
+                if position == 11:
                     break
 
             header=["Rank", "ELO","nick-discord","nick-AOE","Iv"]

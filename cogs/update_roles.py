@@ -35,6 +35,7 @@ class update_roles_task(commands.Cog):
         guild_id = 1117856688964390952
         guild = await self.bot.fetch_guild(guild_id)
         channel = self.bot.get_channel(1123673745748406333) # Anuncios Channel
+        
 
         filename = constants.users_file
         elos_update.update_all_elos(filename)
